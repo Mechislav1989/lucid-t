@@ -142,5 +142,5 @@ MIT License
 
 ---
 
-**Note**: Replace placeholder values in `.env` with your actual database credentials and secret key. Ensure PostgreSQL is running before starting the server.
+**Note**: Replace placeholder values in `.env` with your actual database credentials and secret key. Ensure MySQL is running before starting the server.
 ```
