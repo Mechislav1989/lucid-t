@@ -39,3 +39,21 @@ class GetPostsUseCase:
         posts = await self.post_repo.get_by_user(user_id)
         self.cache.set(user_id, posts)
         return posts
+
+
+@dataclass
+class DeletePostUseCase:
+    post_repo: PostRepository
+    cache: PostCache
+
+    async def execute(self, post_id: int, user_id: int) -> bool:
+        post = await self.post_repo.get_by_id(post_id)
+        if not post:
+            raise ValueError("Post not found")
+        
+        if post.user_id != user_id:
+            raise ValueError("You are not allowed to delete this post")
+        
+        await self.post_repo.delete(post_id)
+        self.cache.invalidate(user_id)
+        return True

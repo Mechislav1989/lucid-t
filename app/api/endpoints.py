@@ -5,10 +5,8 @@ from datetime import datetime, timedelta
 from typing import Annotated, List
 
 from domain.users.model import User
-from domain.posts.model import Post
 from application.users.use_cases import SignupUseCase, LoginUseCase
 from application.posts.use_cases import CreatePostUseCase, GetPostsUseCase, DeletePostUseCase
-from infrastructure.caching import PostCache
 from api.schemas import TokenResponse, PostCreateRequest, PostResponse, UserResponse
 from punq import Container
 from infrastructure.repositories.users import UserRepository

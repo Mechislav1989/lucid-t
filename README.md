@@ -58,7 +58,7 @@ docker compose -f docker_compose/app.yaml --env-file .env up --build -d
 
 ## Running the Server
 ```bash
-uvicorn api.main.create_app --host 0.0.0.0 --port 8000 --reload
+uvicorn api.main:create_app --host 0.0.0.0 --port 8000 --reload
 ```
 API will be available at `http://localhost:8000`
 

@@ -1,6 +1,7 @@
 from contextlib import asynccontextmanager
 from contextvars import ContextVar
 
+from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine, async_sessionmaker
 
 
@@ -40,3 +41,5 @@ class DataBase:
             raise
         finally:
             await session.close()
+
+Base = declarative_base()

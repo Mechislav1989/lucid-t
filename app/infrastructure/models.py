@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, Text, DateTime, ForeignKey
-from database import Base
+from infrastructure.database import Base
 
 
 class PostORM(Base):

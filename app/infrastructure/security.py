@@ -21,3 +21,6 @@ class Security:
         expire = datetime.utcnow() + expires_delta
         to_encode.update({"exp": expire})
         return jwt.encode(to_encode, self.SECRET_KEY, algorithm=self.ALGORITHM)
+    
+    def payload_from_token(self, token: str) -> dict:
+        return jwt.decode(token, self.SECRET_KEY, algorithms=[self.ALGORITHM])
